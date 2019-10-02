@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -17,9 +18,8 @@ namespace iki_engine
     {
          GraphicsDeviceManager graphicsManager;
          SpriteBatch spriteBatch;
-         private Texture2D image;
-         private Vector2 position;
-            
+         public List<GameEntity> entities=new List<GameEntity>();
+
          public Game1()
          {
              graphicsManager=new GraphicsDeviceManager(this);
@@ -28,7 +28,6 @@ namespace iki_engine
              graphicsManager.PreferredBackBufferHeight = 720;
              graphicsManager.IsFullScreen = false;
              graphicsManager.ApplyChanges();
-             position = new Vector2(640,360);
          }
 
          protected override void Initialize()
@@ -39,38 +38,52 @@ namespace iki_engine
          protected override void LoadContent()
          {
              spriteBatch = new SpriteBatch(GraphicsDevice);
-             image = TextureLoader.Load("sprite", Content);
+             LoadLevel();
          }
 
          protected override void Update(GameTime gameTime)
          {
              Input.Update();
-             if (Input.IsKeyDown(Keys.D))
-             {
-                 position.X += 1;
-             }
-             else if (Input.IsKeyDown(Keys.A))
-             {
-                 position.X -= 1;
-             }
-             else if (Input.IsKeyDown(Keys.W))
-             {
-                 position.Y -= 1;
-             }
-             else if (Input.IsKeyDown(Keys.S))
-             {
-                 position.Y += 1;
-             }
+             UpdateEntities();
              base.Update(gameTime);
          }
 
          protected override void Draw(GameTime gameTime)
          {
              GraphicsDevice.Clear(Color.CadetBlue);
-             spriteBatch.Begin();
-             spriteBatch.Draw(image,position,Color.White);
+             spriteBatch.Begin(SpriteSortMode.BackToFront,BlendState.AlphaBlend);
+             DrawEntities();
              spriteBatch.End();
              base.Draw(gameTime);
+         }
+         public void LoadEntities()
+         { 
+             foreach (GameEntity entity in entities)
+             {
+                 entity.Initialize();
+                 entity.Load(Content);
+             }
+         }
+
+         public void UpdateEntities()
+         {
+             foreach (GameEntity entity in entities)
+             {
+                 entity.Update(entities);
+             }
+         }
+         public void DrawEntities()
+         {
+             foreach (GameEntity entity in entities)
+             {
+                 entity.draw(spriteBatch);
+             }
+         }
+
+         public void LoadLevel()
+         {
+             entities.Add(new Player(new Vector2(640,360)));
+             LoadEntities();
          }
     }
 }
