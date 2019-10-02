@@ -19,6 +19,7 @@ namespace iki_engine
          GraphicsDeviceManager graphicsManager;
          SpriteBatch spriteBatch;
          public List<GameEntity> entities=new List<GameEntity>();
+         public Map map=new Map();
 
          public Game1()
          {
@@ -38,6 +39,7 @@ namespace iki_engine
          protected override void LoadContent()
          {
              spriteBatch = new SpriteBatch(GraphicsDevice);
+             map.Load(Content);
              LoadLevel();
          }
 
@@ -53,6 +55,7 @@ namespace iki_engine
              GraphicsDevice.Clear(Color.CadetBlue);
              spriteBatch.Begin(SpriteSortMode.BackToFront,BlendState.AlphaBlend);
              DrawEntities();
+             map.drawWalls(spriteBatch);
              spriteBatch.End();
              base.Draw(gameTime);
          }
@@ -83,6 +86,8 @@ namespace iki_engine
          public void LoadLevel()
          {
              entities.Add(new Player(new Vector2(640,360)));
+             map.walls.Add(new Wall(new Rectangle(256,256,256,256)));
+             map.walls.Add(new Wall(new Rectangle(0, 650, 1280, 128)));
              LoadEntities();
          }
     }

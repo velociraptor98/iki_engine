@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Game1.cs" />
     <Compile Include="GameEntity.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Utilities\Camera.cs" />
@@ -58,6 +59,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Assets\pixel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\sprite.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

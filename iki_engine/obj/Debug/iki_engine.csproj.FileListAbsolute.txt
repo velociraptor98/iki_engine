@@ -8,3 +8,4 @@ C:\Users\kunal\Desktop\engine\iki_engine\iki_engine\obj\Debug\iki_engine.exe
 C:\Users\kunal\Desktop\engine\iki_engine\iki_engine\obj\Debug\iki_engine.pdb
 C:\Users\kunal\Desktop\engine\iki_engine\iki_engine\obj\Debug\iki_engine.csproj.CoreCompileInputs.cache
 C:\Users\kunal\Desktop\engine\iki_engine\iki_engine\bin\Debug\Assets\sprite.png
+C:\Users\kunal\Desktop\engine\iki_engine\iki_engine\bin\Debug\Assets\pixel.png
