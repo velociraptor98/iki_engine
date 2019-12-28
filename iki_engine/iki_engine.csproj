@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Character.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="GameEntity.cs" />
     <Compile Include="Map.cs" />

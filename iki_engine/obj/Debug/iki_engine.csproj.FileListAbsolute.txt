@@ -9,3 +9,13 @@ C:\Users\kunal\Desktop\engine\iki_engine\iki_engine\obj\Debug\iki_engine.pdb
 C:\Users\kunal\Desktop\engine\iki_engine\iki_engine\obj\Debug\iki_engine.csproj.CoreCompileInputs.cache
 C:\Users\kunal\Desktop\engine\iki_engine\iki_engine\bin\Debug\Assets\sprite.png
 C:\Users\kunal\Desktop\engine\iki_engine\iki_engine\bin\Debug\Assets\pixel.png
+E:\engine\iki_engine\iki_engine\bin\Debug\Assets\pixel.png
+E:\engine\iki_engine\iki_engine\bin\Debug\Assets\sprite.png
+E:\engine\iki_engine\iki_engine\bin\Debug\iki_engine.exe.config
+E:\engine\iki_engine\iki_engine\bin\Debug\iki_engine.exe
+E:\engine\iki_engine\iki_engine\bin\Debug\iki_engine.pdb
+E:\engine\iki_engine\iki_engine\bin\Debug\FNA.dll
+E:\engine\iki_engine\iki_engine\obj\Debug\iki_engine.csprojAssemblyReference.cache
+E:\engine\iki_engine\iki_engine\obj\Debug\iki_engine.csproj.CopyComplete
+E:\engine\iki_engine\iki_engine\obj\Debug\iki_engine.exe
+E:\engine\iki_engine\iki_engine\obj\Debug\iki_engine.pdb

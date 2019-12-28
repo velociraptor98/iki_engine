@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace iki_engine
 {
-    class GameEntity
+    public class GameEntity
     {
         protected Texture2D image;
         protected Vector2 center;
@@ -27,6 +27,7 @@ namespace iki_engine
         protected Vector2 boundingOffset;
         private Texture2D boundingTexture;
         private const bool drawBoundingBoxes = true;
+        protected Vector2 direction = new Vector2(1, 0);
 
         //position can change each frame so better to use properties
         public Rectangle BoundingBox
@@ -55,11 +56,14 @@ namespace iki_engine
             }
         }
 
-        public virtual void Update(List<GameEntity> entity)
+        public virtual void Update(List<GameEntity> entity,Map map)
         {
             ;
         }
-
+        public virtual bool CheckCollision(Rectangle inp)
+        {
+            return BoundingBox.Intersects(inp);
+        }
         public virtual void draw(SpriteBatch spritesBatch)
         {
             if(boundingTexture!=null && active==true && canCollide==true)

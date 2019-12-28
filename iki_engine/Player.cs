@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace iki_engine
 {
-    class Player : GameEntity 
+    class Player : Character 
     {
         public Player()
         {
@@ -35,29 +35,51 @@ namespace iki_engine
             base.Load(content);
         }
 
-        public override void Update(List<GameEntity> entity)
+        public override void Update(List<GameEntity> entity,Map map)
         {
-            CheckInput();
-            base.Update(entity);
+            CheckInput(entity,map);
+            base.Update(entity,map);
         }
 
-        private void CheckInput()
+        private void CheckInput(List<GameEntity> entity, Map map)
         {
-            if (Input.IsKeyDown(Keys.D))
+            if (applyGravity == false)
             {
-                position.X += 1;
+                if (Input.IsKeyDown(Keys.D))
+                {
+                    MoveRight();
+                }
+                else if (Input.IsKeyDown(Keys.A))
+                {
+                    MoveLeft();
+                }
+                else if (Input.IsKeyDown(Keys.W))
+                {
+                    MoveUp();
+                }
+                else if (Input.IsKeyDown(Keys.S))
+                {
+                    MoveDown();
+                }
             }
-            else if (Input.IsKeyDown(Keys.A))
+            else
             {
-                position.X -= 1;
-            }
-            else if (Input.IsKeyDown(Keys.W))
-            {
-                position.Y -= 1;
-            }
-            else if (Input.IsKeyDown(Keys.S))
-            {
-                position.Y += 1;
+                if(Input.IsKeyDown(Keys.D))
+                {
+                    MoveRight();
+                }
+                else if (Input.IsKeyDown(Keys.A))
+                {
+                    MoveLeft();
+                }
+                else if(Input.IsKeyDown(Keys.W))
+                {
+                    Jump(map);
+                }
+                else if (Input.IsKeyDown(Keys.S))
+                {
+                    MoveDown();
+                }
             }
         }
     }

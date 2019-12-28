@@ -72,7 +72,7 @@ namespace iki_engine
          {
              foreach (GameEntity entity in entities)
              {
-                 entity.Update(entities);
+                 entity.Update(entities,map);
              }
          }
          public void DrawEntities()
